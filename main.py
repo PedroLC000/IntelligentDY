@@ -54,7 +54,11 @@ else:
   df = pd.read_csv("input.csv", names=column_names)
   letters = df.Ativos.to_list()
   letters.pop(0)
-  lista_Ativos = letters
+  if len(letters) == 0:
+    print('Input vazio')
+    exit()
+  else:
+    lista_Ativos = letters
 
 date_now = datetime.date(datetime.now())
 date_now_Day = pd.to_datetime(date_now, dayfirst=True).strftime('%A')
